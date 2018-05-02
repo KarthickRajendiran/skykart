@@ -19,10 +19,15 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>skyart - ${title } </title>
+<title>skyart - ${title }</title>
+<script>
+	window.menu = '${title}'
+</script>
 
 <!-- Bootstrap Core CSS -->
 <link href="${css }/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Lux Theme -->
+<link href="${css}/bootstrap-cerulean-theme.css" rel="stylesheet">
 
 <!-- Custom CSS -->
 <link href="${css }/myapp.css" rel="stylesheet">
@@ -37,34 +42,40 @@
 </head>
 
 <body>
+	<div class="wrapper">
 
-	<!-- Navigation -->
-	<%@include file="./shared/navbar.jsp"%>
-	<!-- Page Content -->
-	<!-- loading the home content -->
-	<c:if test="${userClickHome == true }">
-<%@include file="home.jsp" %>
-</c:if>
+		<!-- Navigation -->
+		<%@include file="./shared/navbar.jsp"%>
+		<!-- Page Content -->
+		<div class="content">
+			<!-- loading the home content -->
+			<c:if test="${userClickHome == true }">
+				<%@include file="home.jsp"%>
+			</c:if>
 
-<!-- load only when user clicks about -->
-<c:if test="${userClickAbout == true }">
-<%@include file="about.jsp" %>
-</c:if>
+			<!-- load only when user clicks about -->
+			<c:if test="${userClickAbout == true }">
+				<%@include file="about.jsp"%>
+			</c:if>
 
-<!-- load only when user Clicks contact -->
-<c:if test="${userClickContact == true }">
-<%@include file="contact.jsp" %>
-</c:if>
+			<!-- load only when user Clicks contact -->
+			<c:if test="${userClickContact == true }">
+				<%@include file="contact.jsp"%>
+			</c:if>
 
+		</div>
+		<!-- footer comes here -->
+		<%@include file="./shared/footer.jsp"%>
 
-	<!-- footer comes here -->
-	<%@include file="./shared/footer.jsp"%>
+		<!-- jQuery -->
+		<script src="${js}/jquery.js"></script>
 
-	<!-- jQuery -->
-	<script src="${js}/jquery.js"></script>
+		<!-- Bootstrap Core JavaScript -->
+		<script src="${js }/bootstrap.min.js"></script>
+		<!-- Self coded javascript -->
+		<script src="${js }/myapp.js"></script>
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="${js }/bootstrap.min.js"></script>
+	</div>
 
 </body>
 
